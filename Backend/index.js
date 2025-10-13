@@ -5,7 +5,7 @@ import morgan from "morgan";
 import connectDB from "./lib/db.js";
 import authRoutes from "./routes/auth.routes.js";
 import jobRoutes from "./routes/job.routes.js";
-
+import jobApplicationRoutes from "./routes/jobApplication.routes.js";
 dotenv.config(); // Load environment variables
 
 const app = express();
@@ -32,6 +32,8 @@ app.get("/", (req, res) => {
 //Create Midlleware for routes
 app.use("/api/auth",authRoutes);
 app.use("/api/jobs",jobRoutes);
+app.use("/api/applications", jobApplicationRoutes);
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
