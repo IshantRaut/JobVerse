@@ -8,6 +8,7 @@ const router = express.Router();
 
 // 🧩 Jobseeker routes
 router.post("/apply/:jobId", protect, authorizeRoles("jobseeker"), applyJob);
+
 router.get("/my-applications", protect, authorizeRoles("jobseeker"), getMyApplications);
 
 // 🧩 Recruiter/Admin routes
